@@ -1,17 +1,14 @@
 <?php
 
-namespace Gentor\Calendly\Api;
+namespace Fidelite\Calendly\Api;
 
 /**
  * Class Memberships
- * @package Gentor\Calendly\Api
+ * @package Fidelite\Calendly\Api
  */
 class Memberships extends Resource
 {
-    /**
-     * @var string
-     */
-    protected $endPoint = '/organization_memberships/';
+    protected string $endPoint = '/organization_memberships/';
 
     public function forOrganization($uri, $count = 100)
     {

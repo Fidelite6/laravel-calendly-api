@@ -1,12 +1,12 @@
 <?php
 
-namespace Gentor\Calendly;
+namespace Fidelite\Calendly;
 
 use Illuminate\Support\ServiceProvider;
 
 /**
  * Class CalendlyServiceProvider
- * @package Gentor\Calendly
+ * @package Fidelite\Calendly
  */
 class CalendlyServiceProvider extends ServiceProvider
 {
@@ -26,7 +26,7 @@ class CalendlyServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/calendly.php', 'calendly');
     }
@@ -36,7 +36,7 @@ class CalendlyServiceProvider extends ServiceProvider
      *
      * @return array
      */
-    public function provides()
+    public function provides(): array
     {
         return ['calendly'];
     }

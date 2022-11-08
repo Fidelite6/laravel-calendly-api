@@ -1,26 +1,22 @@
 <?php
 
 
-namespace Gentor\Calendly\Api;
+namespace Fidelite\Calendly\Api;
 
 use Exception;
-use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Psr7\Uri;
 use GuzzleHttp\Client as GuzzleHttpClient;
 
 /**
  * Class Client
- * @package Gentor\Calendly\Api
+ * @package Fidelite\Calendly\Api
  */
 class Client
 {
     const BASE_URI = 'https://api.calendly.com';
-
-    /**
-     * @var GuzzleHttpClient
-     */
-    protected $client;
+    protected GuzzleHttpClient $client;
 
     /**
      * Client constructor.
@@ -46,9 +42,9 @@ class Client
      * @param array|null $params
      * @return mixed
      * @throws Exception
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
-    public function request(string $method, string $path, array $params = null)
+    public function request(string $method, string $path, array $params = null): mixed
     {
         $uri = $this->getBaseUri()->withPath($path);
 
@@ -65,9 +61,9 @@ class Client
     }
 
     /**
-     * @return \GuzzleHttp\Psr7\Uri
+     * @return Uri
      */
-    public function getBaseUri()
+    public function getBaseUri(): Uri
     {
         return new Uri($this->client->getConfig('base_uri'));
     }
@@ -76,14 +72,14 @@ class Client
      * @param ResponseInterface $response
      * @return mixed
      */
-    public function response(ResponseInterface $response)
+    public function response(ResponseInterface $response): mixed
     {
         return json_decode($response->getBody());
     }
 
     public function uriToUuid($uri)
     {
-        if (strpos($uri, self::BASE_URI) !== false) {
+        if (str_contains($uri, self::BASE_URI)) {
             $arr = explode('/', $uri);
             $uri = end($arr);
         }

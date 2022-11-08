@@ -1,19 +1,19 @@
 <?php
 
-namespace Gentor\Calendly\Api;
+namespace Fidelite\Calendly\Api;
 
 /**
  * Class Webhooks
- * @package Gentor\Calendly\Api
+ * @package Fidelite\Calendly\Api
  */
 class Webhooks extends Resource
 {
     /**
      * @var string
      */
-    protected $endPoint = '/webhook_subscriptions/';
+    protected string $endPoint = '/webhook_subscriptions/';
 
-    protected $organizationUri;
+    protected string $organizationUri;
 
     /**
      * Resource constructor.

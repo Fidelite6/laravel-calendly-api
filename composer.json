@@ -1,5 +1,5 @@
 {
-    "name": "gentor/laravel-calendly-api",
+    "name": "fidelite/laravel-calendly-api",
     "description": "PHP Calendly API (v2) SDK for Laravel",
     "keywords": [
         "laravel",
@@ -16,21 +16,21 @@
         }
     ],
     "require": {
-        "php": "^7",
-        "guzzlehttp/guzzle": "^6"
+        "php": "^8",
+        "guzzlehttp/guzzle": "^7.2"
     },
     "autoload": {
         "psr-4": {
-            "Gentor\\Calendly\\": "src/"
+            "Fidelite\\Calendly\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Gentor\\Calendly\\CalendlyServiceProvider"
+                "Fidelite\\Calendly\\CalendlyServiceProvider"
             ],
             "aliases": {
-                "Calendly": "Gentor\\Calendly\\Calendly"
+                "Calendly": "Fidelite\\Calendly\\Calendly"
             }
         }
     },

@@ -1,17 +1,14 @@
 <?php
 
-namespace Gentor\Calendly\Api;
+namespace Fidelite\Calendly\Api;
 
 /**
  * Class EventTypes
- * @package Gentor\Calendly\Api
+ * @package Fidelite\Calendly\Api
  */
 class EventTypes extends Resource
 {
-    /**
-     * @var string
-     */
-    protected $endPoint = '/event_types/';
+    protected string $endPoint = '/event_types/';
 
     public function forOrganization($uri, $count = 100)
     {

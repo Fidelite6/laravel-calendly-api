@@ -1,30 +1,23 @@
 <?php
 
-namespace Gentor\Calendly;
+namespace Fidelite\Calendly;
 
-use Gentor\Calendly\Api\Client;
-use Gentor\Calendly\Api\EventTypes;
-use Gentor\Calendly\Api\Memberships;
-use Gentor\Calendly\Api\ScheduledEvents;
-use Gentor\Calendly\Api\Users;
-use Gentor\Calendly\Api\Webhooks;
+use Fidelite\Calendly\Api\Client;
+use Fidelite\Calendly\Api\EventTypes;
+use Fidelite\Calendly\Api\Memberships;
+use Fidelite\Calendly\Api\ScheduledEvents;
+use Fidelite\Calendly\Api\Users;
+use Fidelite\Calendly\Api\Webhooks;
 
 /**
  * Class CalendlyAPI
  *
- * @package Gentor\Calendly
+ * @package Fidelite\Calendly
  */
 class CalendlyAPI
 {
-    /**
-     * @var array
-     */
-    protected $config;
-
-    /**
-     * @var \Gentor\Calendly\Api\Client
-     */
-    protected $client;
+    protected array $config;
+    protected Client $client;
 
     /**
      * CalendlyAPI constructor.
@@ -38,9 +31,9 @@ class CalendlyAPI
     }
 
     /**
-     * @return \Gentor\Calendly\Api\Client
+     * @return Client
      */
-    public function client()
+    public function client(): Client
     {
         return $this->client;
     }
@@ -48,7 +41,7 @@ class CalendlyAPI
     /**
      * @param $personalToken
      * @param $organizationUri
-     * @return \Gentor\Calendly\CalendlyAPI
+     * @return CalendlyAPI
      */
     public function changeCredentials($personalToken, $organizationUri)
     {
@@ -64,41 +57,41 @@ class CalendlyAPI
     }
 
     /**
-     * @return \Gentor\Calendly\Api\Users
+     * @return Users
      */
-    public function users()
+    public function users(): Users
     {
         return new Users($this->client);
     }
 
     /**
-     * @return \Gentor\Calendly\Api\EventTypes
+     * @return EventTypes
      */
-    public function eventTypes()
+    public function eventTypes(): EventTypes
     {
         return new EventTypes($this->client);
     }
 
     /**
-     * @return \Gentor\Calendly\Api\ScheduledEvents
+     * @return ScheduledEvents
      */
-    public function scheduledEvents()
+    public function scheduledEvents(): ScheduledEvents
     {
         return new ScheduledEvents($this->client);
     }
 
     /**
-     * @return \Gentor\Calendly\Api\Memberships
+     * @return Memberships
      */
-    public function memberships()
+    public function memberships(): Memberships
     {
         return new Memberships($this->client);
     }
 
     /**
-     * @return \Gentor\Calendly\Api\Webhooks
+     * @return Webhooks
      */
-    public function webhooks($organizationUri = null)
+    public function webhooks($organizationUri = null): Webhooks
     {
         if (is_null($organizationUri)) {
             $organizationUri = $this->config['organization_uri'];

@@ -1,14 +1,14 @@
 <?php
 
-namespace Gentor\Calendly;
+namespace Fidelite\Calendly;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * Class Calendly
  *
- * @package Gentor\Calendly
- * @see \Gentor\Calendly\CalendlyAPI
+ * @package Fidelite\Calendly
+ * @see \Fidelite\Calendly\CalendlyAPI
  */
 class Calendly extends Facade
 {

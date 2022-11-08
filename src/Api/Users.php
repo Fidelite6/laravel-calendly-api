@@ -1,17 +1,17 @@
 <?php
 
-namespace Gentor\Calendly\Api;
+namespace Fidelite\Calendly\Api;
 
 /**
  * Class Users
- * @package Gentor\Calendly\Api
+ * @package Fidelite\Calendly\Api
  */
 class Users extends Resource
 {
     /**
      * @var string
      */
-    protected $endPoint = '/users/';
+    protected string $endPoint = '/users/';
 
     public function me()
     {

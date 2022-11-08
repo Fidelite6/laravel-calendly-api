@@ -1,22 +1,18 @@
 <?php
 
-namespace Gentor\Calendly\Api;
+namespace Fidelite\Calendly\Api;
+
+use Exception;
+use GuzzleHttp\Exception\GuzzleException;
 
 /**
  * Class Resource
- * @package Gentor\Calendly\Api
+ * @package Fidelite\Calendly\Api
  */
 abstract class Resource
 {
-    /**
-     * @var string
-     */
-    protected $endPoint;
-
-    /**
-     * @var Client
-     */
-    protected $client;
+    protected string $endPoint;
+    protected Client $client;
 
     /**
      * Resource constructor.
@@ -30,9 +26,10 @@ abstract class Resource
     /**
      * @param $uuid
      * @return mixed
-     * @throws \Exception
+     * @throws Exception
+     * @throws GuzzleException
      */
-    public function get($uuid)
+    public function get($uuid): mixed
     {
         $uuid = $this->client->uriToUuid($uuid);
 
