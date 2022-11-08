@@ -9,7 +9,7 @@ Installation
 Installation using composer:
 
 ```
-composer require gentor/laravel-calendly-api
+composer require fidelite6/laravel-calendly-api
 ```
 
 Configuration
