@@ -8,7 +8,8 @@ namespace Fidelite\Calendly\Api;
  */
 class ScheduledEvents extends Resource
 {
-    const DEFAULT_SORT = 'desc';
+    const DEFAULT_SORT = 'start_time:desc';
+
     /**
      * @var string
      */
@@ -19,7 +20,7 @@ class ScheduledEvents extends Resource
         return $this->client->request('get', $this->endPoint, [
             'organization' => $uri,
             'count'        => $count,
-            'sort_time'    => $sort,
+            'sort'    => $sort,
         ]);
     }
 
@@ -28,7 +29,7 @@ class ScheduledEvents extends Resource
         return $this->client->request('get', $this->endPoint, [
             'user'      => $uri,
             'count'     => $count,
-            'sort_time' => $sort,
+            'sort' => $sort,
         ]);
     }
 
