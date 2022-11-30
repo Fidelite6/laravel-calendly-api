@@ -33,6 +33,11 @@ class ScheduledEvents extends Resource
         ]);
     }
 
+    public function getEvent($uuid)
+    {
+        return $this->client->request('get', $this->endPoint.$uuid);
+    }
+
     public function invitees($uuid)
     {
         $uuid = $this->client->uriToUuid($uuid);
