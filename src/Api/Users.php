@@ -24,13 +24,4 @@ class Users extends Resource
         return $this->get('me');
     }
 
-    /**
-     * @param $uuid
-     * @return mixed
-     * @throws GuzzleException
-     */
-    public function getById($uuid): mixed
-    {
-        return $this->get($uuid);
-    }
 }
